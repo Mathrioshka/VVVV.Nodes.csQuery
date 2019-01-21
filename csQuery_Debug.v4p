@@ -1,0 +1,197 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
+   <PATCH nodename="C:\Users\smakhtin\Documents\GitRepos\VVVV.Nodes.csQuery\csQuery_Debug.v4p" systemname="csQuery_Debug" filename="C:\Users\smakhtin\Documents\GitRepos\VVVV.Nodes.csQuery\csQuery_Debug.v4p">
+   <BOUNDS type="Window" left="9900" top="0" width="11220" height="10395">
+   </BOUNDS>
+   <NODE systemname="Renderer (TTY)" nodename="Renderer (TTY)" componentmode="InAWindow" id="2">
+   <BOUNDS type="Node" left="5145" top="2715" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5145" top="2715" width="2400" height="1800">
+   </BOUNDS>
+   <BOUNDS type="Window" left="20310" top="6585" width="6240" height="5085">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Select (csQuery)" filename="bin\Debug\vvvv.nodes.csQuery.dll" nodename="Select (csQuery)" componentmode="Hidden" id="3">
+   <BOUNDS type="Node" left="2100" top="3015" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="HTML" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Selection Result" visible="1">
+   </PIN>
+   <PIN pinname="DOM Object" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="4" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="2625" top="3675" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2625" top="3675" width="1500" height="240">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="Status" dstnodeid="4" dstpinname="Input String">
+   </LINK>
+   <NODE systemname="HTTP (Network Get)" nodename="HTTP (Network Get)" componentmode="Hidden" id="5">
+   <BOUNDS type="Node" left="1530" top="1170" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Body" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="6" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="1560" top="615" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1560" top="615" width="2640" height="345">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="http://vvvv.org/downloads">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="http://vvvv.org">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="URL">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Output String" dstnodeid="5" dstpinname="URL">
+   </LINK>
+   <NODE systemname="AsString (Raw)" nodename="AsString (Raw)" componentmode="Hidden" id="7">
+   <BOUNDS type="Node" left="2085" top="1935" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Encoding" slicecount="1" values="utf-8">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="5" srcpinname="Body" dstnodeid="7" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="Output" dstnodeid="3" dstpinname="HTML">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="8" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="90" top="6300" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="90" top="6300" width="4290" height="2070">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Input String" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="9" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="2655" top="2325" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2655" top="2325" width="1050" height="360">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values=".download">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="9" srcpinname="Output String" dstnodeid="3" dstpinname="jQuery Selector">
+   </LINK>
+   <NODE systemname="XPath (XML)" nodename="XPath (XML)" componentmode="Hidden" id="11">
+   <BOUNDS type="Node" left="4860" top="3615" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="XML Input" visible="1" slicecount="1" values="|&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;|">
+   </PIN>
+   <PIN pinname="XPath Query" slicecount="1" values="//a/">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="Output" dstnodeid="11" dstpinname="XML Input">
+   </LINK>
+   <NODE systemname="Select (csQuery)" filename="bin\Debug\vvvv.nodes.csQuery.dll" nodename="Select (csQuery)" componentmode="Hidden" id="13">
+   <BOUNDS type="Node" left="2085" top="4920" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="HTML" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Selection Result" visible="1">
+   </PIN>
+   <PIN pinname="Value" visible="1">
+   </PIN>
+   <PIN pinname="DOM Object" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="14" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="2625" top="4275" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2625" top="4275" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="[href]">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="14" srcpinname="Output String" dstnodeid="13" dstpinname="jQuery Selector">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="15" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="4530" top="6810" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4530" top="6810" width="6150" height="2595">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Input String" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="4">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="Selection Result" dstnodeid="13" dstpinname="HTML">
+   </LINK>
+   <LINK srcnodeid="13" srcpinname="Selection Result" dstnodeid="8" dstpinname="Input String">
+   </LINK>
+   <NODE systemname="GetAttribute (csQuery)" filename="bin\Debug\vvvv.nodes.csQuery.dll" nodename="GetAttribute (csQuery)" componentmode="Hidden" id="16">
+   <BOUNDS type="Node" left="4515" top="5865" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="DOM Object" visible="1">
+   </PIN>
+   <PIN pinname="Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="17" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="5355" top="5400" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5355" top="5400" width="930" height="285">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="href">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="17" srcpinname="Output String" dstnodeid="16" dstpinname="Attribute">
+   </LINK>
+   <LINK srcnodeid="13" srcpinname="DOM Object" dstnodeid="16" dstpinname="DOM Object">
+   </LINK>
+   <LINK srcnodeid="16" srcpinname="Value" dstnodeid="15" dstpinname="Input String">
+   </LINK>
+   </PATCH>
